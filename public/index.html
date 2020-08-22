@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="file" name="avatar" id="input_avatar">
+
+    <script>
+        const apiURL = 'http://localhost:3030/upload'
+        const onXHRError = err => {
+            console.log(err)
+        }
+        const onXHRLoad = (...arg) => {
+            console.log('LOAD result:', ...arg)
+        }
+        const onXHRProgress = (...arg) => {
+            console.log('progress:', ...arg)
+        }
+        document.getElementById('input_avatar').addEventListener('change', (el, evt) => {
+            const xhr = new XMLHttpRequest()
+            const formData = new FormData()
+            const file = document.getElementById('input_avatar').files[0]
+            xhr.onerror = onXHRError
+            xhr.onload = onXHRLoad
+            xhr.onprogress = onXHRProgress
+            formData.append('avatar', file)
+            xhr.open('POST', apiURL)
+            xhr.send(formData)
+        })
+    </script>
+
+</body>
+
+</html>
