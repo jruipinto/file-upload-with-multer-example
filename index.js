@@ -28,6 +28,6 @@ app.get('/', (req, res, next) => {
 app.listen(
     port,
     () => {
-        console.log('listening on localhost:' + port)
+        console.log('Listening on http://localhost:' + port)
     }
 );
