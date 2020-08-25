@@ -85,16 +85,16 @@
         }
         function handleXHRProgress(progress) {
             const { total, loaded } = progress
-            progressPercent = `${(loaded * 100) / total}%`
+            progressPercent = `${Math.round((loaded * 100) / total)}%`
             setProgressInLabel(uploadLbl).as(progressPercent)
             console.log('progress:', progressPercent)
         }
         function upload(filesList) {
             const xhr = new XMLHttpRequest()
             const formData = new FormData()
-            xhr.addEventListener('error', handleXHRError)
-            xhr.addEventListener('load', handleXHRLoad)
-            xhr.addEventListener('progress', handleXHRProgress)
+            xhr.upload.addEventListener('error', handleXHRError)
+            xhr.upload.addEventListener('load', handleXHRLoad)
+            xhr.upload.addEventListener('progress', handleXHRProgress)
             Array.from(filesList).forEach(file => {
                 formData.append('file', file)
             })
