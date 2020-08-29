@@ -17,3 +17,5 @@ npm start
 - [MDN css variables](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties)
 - [MDN getElementById](https://developer.mozilla.org/pt-BR/docs/Web/API/Document/getElementById)
 - [XHR Monitor Upload Progress](https://attacomsian.com/blog/xhr-monitor-progress)
+- [Multer basic usage example](https://github.com/expressjs/multer#readme)
+- [CORS simple usage example](https://github.com/expressjs/multer#readme)
